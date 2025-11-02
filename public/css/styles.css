@@ -4,3 +4,239 @@
 *:after {
   box-sizing: border-box;
 }
+
+/* Home page */
+html {
+  /* color variables */
+  --white: #fff;
+  --whiteTransparent: #ffffffe1;
+  --black: #000;
+  --accent: #0BB4D6;
+  --navBackground: #242332;
+  background:
+    repeating-conic-gradient(var(--black) 0% 25%, var(--white) 0% 50%)
+    50%/ 80px 80px;
+
+  display: flex;
+  justify-content: center;
+}
+
+body {
+  border: 4px solid var(--accent);
+  border-radius: 8px;
+  background-color: var(--white);
+  padding: 5px;
+  margin-left: 4rem;
+  margin-right: 4rem;
+  max-width: 900px;
+}
+
+/* Header */
+#top-header {
+  font-family: sans-serif;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  padding: 1rem 5px;
+}
+
+#top-header a {
+  text-decoration: none;
+  color: var(--black);
+}
+
+.siteName {
+  font-size: 1.75rem;
+}
+
+/* Navigation */
+nav {
+  margin: 0 5px;
+  background-color: var(--navBackground);
+}
+
+nav ul {
+  display: flex;
+  justify-content: space-around;
+}
+
+nav li {
+  list-style-type: none;
+  margin: .5rem;
+  font-family: sans-serif;
+  color: var(--white);
+  text-decoration: none;
+}
+
+/* Main */
+main {
+  margin: 5px;
+}
+
+.hero {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  grid-template-rows: 1fr;
+}
+
+.hero img {
+  grid-column-start: 1;
+  grid-column-end: 3;
+  grid-row-start: 1;
+  margin: 1rem 3rem;
+  justify-self: center;
+}
+
+.heroCard {
+  grid-column-start: 1;
+  grid-row-start: 1;
+  background-color: var(--whiteTransparent);
+  color: var(--accent);
+  margin: 25% 0 25% 2rem;
+  width: 100%;
+  min-width: 160px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.heroCard p {
+  margin: 0;
+  font-size: 1.25rem;
+  font-family: sans-serif;
+}
+
+.heroCard h2 {
+  margin: 0;
+  font-size: 1.75rem;
+}
+
+.heroCard ul {
+  padding: 0;
+  margin: 0;
+}
+
+.heroCard button {
+  background-color: var(--accent);
+  padding: 1rem;
+  margin: 1rem 0;
+  width: 140px;
+  font-weight: 800;
+}
+
+#cardGrid {
+  display: grid;
+  grid-template-areas:
+  "title1 title2" 
+  "upgrades reviews";
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+#upgrades {
+  grid-area: upgrades;
+  display: grid;
+  gap: 5px;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+}
+
+#upgrades div {
+  display: grid;
+  grid-template-rows: 85px 1fr;
+  justify-items: center;
+  margin: 0 0 2rem;
+}
+
+#upgrades div div {
+  width: 100%;
+  height: 100%;
+  border: 1px solid var(--black);
+  background-color: var(--accent);
+}
+
+#upgrades img {
+  margin: 5px 0;;
+}
+
+#reviews {
+  grid-area: reviews;
+}
+
+#reviews p {
+  list-style-type: disc;
+  display: list-item;
+  margin-left: 1rem;
+}
+
+/* footer */
+footer {
+  margin: 5px;
+}
+
+
+
+
+/* Small Screens */
+@media screen and (max-width: 650px) { 
+  html {
+    display: block;
+  }
+
+  body {
+    margin: 0;
+    border: none;
+    border-radius: none;
+  }
+
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  .heroCard {
+    margin: 0;
+    min-width: 140px;
+    height: fit-content;
+    align-self: center;
+  }
+
+  .heroCard h2 {
+    font-size: 1.25rem;
+  }
+
+  .heroCard p {
+    font-size: 1rem;
+    font-weight: 400;
+  }
+
+  .heroCard button {
+    margin: 0;
+    padding: 5px 0;
+    width: 75%;
+  }
+
+  .hero img {
+    width: 100%;
+    object-fit: contain;
+    height: auto;
+  }
+
+  /* cards */
+  #cardGrid {
+    display: grid;
+    grid-template-areas: 
+    "title2"
+    "reviews"
+    "title1"
+    "upgrades";
+    grid-template-columns: 1fr;
+  }
+
+  .title1 {
+    grid-area: title1;
+  }
+
+  .title2 {
+    grid-area: title2;
+  }
+}
