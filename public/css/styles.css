@@ -5,7 +5,7 @@
   box-sizing: border-box;
 }
 
-/* Home page */
+/* Home page - Mobile First (Small Screen Default) */
 html {
   /* color variables */
   --white: #fff;
@@ -17,18 +17,15 @@ html {
     repeating-conic-gradient(var(--black) 0% 25%, var(--white) 0% 50%)
     50%/ 80px 80px;
 
-  display: flex;
-  justify-content: center;
+  display: block;
 }
 
 body {
-  border: 4px solid var(--accent);
-  border-radius: 8px;
   background-color: var(--white);
   padding: 5px;
-  margin-left: 4rem;
-  margin-right: 4rem;
-  max-width: 900px;
+  margin: 0;
+  border: none;
+  border-radius: none;
 }
 
 /* Header */
@@ -47,6 +44,10 @@ body {
 
 .siteName {
   font-size: 1.75rem;
+}
+
+h1 {
+  font-size: 1.5rem;
 }
 
 /* Navigation */
@@ -85,6 +86,9 @@ main {
   grid-row-start: 1;
   margin: 1rem 3rem;
   justify-self: center;
+  width: 100%;
+  object-fit: contain;
+  height: auto;
 }
 
 .heroCard {
@@ -92,9 +96,11 @@ main {
   grid-row-start: 1;
   background-color: var(--whiteTransparent);
   color: var(--accent);
-  margin: 25% 0 25% 2rem;
+  margin: 0;
   width: 100%;
-  min-width: 160px;
+  min-width: 140px;
+  height: fit-content;
+  align-self: center;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -102,13 +108,14 @@ main {
 
 .heroCard p {
   margin: 0;
-  font-size: 1.25rem;
+  font-size: 1rem;
+  font-weight: 400;
   font-family: sans-serif;
 }
 
 .heroCard h2 {
   margin: 0;
-  font-size: 1.75rem;
+  font-size: 1.25rem;
 }
 
 .heroCard ul {
@@ -118,19 +125,30 @@ main {
 
 .heroCard button {
   background-color: var(--accent);
-  padding: 1rem;
-  margin: 1rem 0;
-  width: 140px;
+  margin: 0;
+  padding: 5px 0;
+  width: 75%;
   font-weight: 800;
 }
 
+/* cards - Mobile layout */
 #cardGrid {
   display: grid;
-  grid-template-areas:
-  "title1 title2" 
-  "upgrades reviews";
-  grid-template-columns: 1fr 1fr;
+  grid-template-areas: 
+  "title2"
+  "reviews"
+  "title1"
+  "upgrades";
+  grid-template-columns: 1fr;
   gap: 10px;
+}
+
+.title1 {
+  grid-area: title1;
+}
+
+.title2 {
+  grid-area: title2;
 }
 
 #upgrades {
@@ -174,69 +192,60 @@ footer {
   margin: 5px;
 }
 
-
-
-
-/* Small Screens */
-@media screen and (max-width: 650px) { 
+/* Large Screens */
+@media screen and (min-width: 651px) { 
   html {
-    display: block;
+    display: flex;
+    justify-content: center;
   }
 
   body {
-    margin: 0;
-    border: none;
-    border-radius: none;
+    border: 4px solid var(--accent);
+    border-radius: 8px;
+    margin-left: 4rem;
+    margin-right: 4rem;
+    max-width: 900px;
   }
 
   h1 {
-    font-size: 1.5rem;
+    font-size: 2rem;
+
   }
 
   .heroCard {
-    margin: 0;
-    min-width: 140px;
-    height: fit-content;
-    align-self: center;
+    margin: 25% 0 25% 2rem;
+    min-width: 160px;
+    height: initial;
+    align-self: initial;
   }
 
   .heroCard h2 {
-    font-size: 1.25rem;
+    font-size: 1.75rem;
   }
 
   .heroCard p {
-    font-size: 1rem;
-    font-weight: 400;
+    font-size: 1.25rem;
+    font-weight: initial;
   }
 
   .heroCard button {
-    margin: 0;
-    padding: 5px 0;
-    width: 75%;
+    padding: 1rem;
+    margin: 1rem 0;
+    width: 140px;
   }
 
   .hero img {
-    width: 100%;
-    object-fit: contain;
-    height: auto;
+    width: initial;
+    object-fit: initial;
+    height: initial;
   }
 
-  /* cards */
+  /* cards - Desktop layout */
   #cardGrid {
     display: grid;
-    grid-template-areas: 
-    "title2"
-    "reviews"
-    "title1"
-    "upgrades";
-    grid-template-columns: 1fr;
-  }
-
-  .title1 {
-    grid-area: title1;
-  }
-
-  .title2 {
-    grid-area: title2;
+    grid-template-areas:
+    "title1 title2" 
+    "upgrades reviews";
+    grid-template-columns: 1fr 1fr;
   }
 }
