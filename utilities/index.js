@@ -57,6 +57,21 @@ Util.buildClassificationGrid = async function(data){
   return grid
 }
 
+Util.buildVehicleViewGrid = async function (data) {
+  let grid
+  if (data.length > 0) {
+    grid = '<img src="' + data[0].inv_image
+    + '" alt = "Image of ' + data[0].inv_make + ' ' + data[0].inv_model + ' on CSE Motors" />'
+    grid += '<div class="infoCard"'
+    grid += '<h2>' + data[0].inv_year + ' ' + data[0].inv_make + ' ' + data[0].inv_model + '</h2>'
+    grid += '<h3 class="price">$' + new Intl.NumberFormat('en-US').format(data[0].inv_price) + '</h3>'
+    grid += '<p><strong>Mileage: </strong>' + new Intl.NumberFormat('en-US').format(data[0].inv_miles) + '</p>'
+    grid += '<p><strong>Color: </strong>' + data[0].inv_color + '</p>'
+    grid += '<p><strong>Description: </strong>' + data[0].inv_description + '</p>'
+    grid += '</div>'
+  }
+}
+
 /* ****************************************
  * Middleware For Handling Errors
  * Wrap other function in this for 
