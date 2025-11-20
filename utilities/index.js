@@ -70,6 +70,7 @@ Util.buildVehicleViewGrid = async function (data) {
     grid += '<p><strong>Description: </strong>' + data[0].inv_description + '</p>'
     grid += '</div>'
   }
+  return grid
 }
 
 /* ****************************************
