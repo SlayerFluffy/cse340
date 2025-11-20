@@ -62,7 +62,7 @@ Util.buildVehicleViewGrid = async function (data) {
   if (data.length > 0) {
     grid = '<img src="' + data[0].inv_image
     + '" alt = "Image of ' + data[0].inv_make + ' ' + data[0].inv_model + ' on CSE Motors" />'
-    grid += '<div class="infoCard"'
+    grid += '<div class="infoCard">'
     grid += '<h2>' + data[0].inv_year + ' ' + data[0].inv_make + ' ' + data[0].inv_model + '</h2>'
     grid += '<h3 class="price">$' + new Intl.NumberFormat('en-US').format(data[0].inv_price) + '</h3>'
     grid += '<p><strong>Mileage: </strong>' + new Intl.NumberFormat('en-US').format(data[0].inv_miles) + '</p>'
