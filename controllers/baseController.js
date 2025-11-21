@@ -6,4 +6,9 @@ baseController.buildHome = async function(req, res){
   res.render("index", {title: "Home", nav})
 }
 
+baseController.buildError = async function (req, res) {
+  const error = fakeRoute.null
+  res.render("index", { title: "Server Error", error })
+}
+
 module.exports = baseController

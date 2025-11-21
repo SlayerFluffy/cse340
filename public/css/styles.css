@@ -69,6 +69,17 @@ nav li {
   text-decoration: none;
 }
 
+nav li a {
+  color: var(--white);
+  text-decoration: none;
+  padding: 10px;
+}
+
+nav li a:hover {
+  background-color: var(--white);
+  color: var(--black);
+}
+
 /* Main */
 main {
   margin: 5px;
@@ -187,6 +198,65 @@ main {
   margin-left: 1rem;
 }
 
+/* category display */
+#inv-display {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0;
+  margin: 2rem;
+}
+
+#inv-display li {
+  display: flex;
+  justify-content: space-between;
+  border: 1px solid gray;
+  border-radius: 10px;
+  list-style-type: none;
+  margin: 1rem;
+}
+
+#inv-display li a {
+  display: flex;
+  align-content: center;
+}
+
+#inv-display li a img {
+  display: flex;
+  overflow: hidden;
+  min-width: 200px;
+  border-radius: 10px 0 0 10px;
+}
+
+#inv-display div {
+  margin: 0 2rem;
+  flex-grow: 1;
+}
+
+#inv-display hr {
+  display: none;
+}
+
+/* single inventory item view */
+.detailView {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.detailView img {
+  max-width: 500px;
+  height: auto;
+}
+
+.infoCard {
+  border: 1px solid gray;
+  border-radius: 10px;
+  padding: 1rem;
+  background-color: rgb(237, 239, 243);
+}
+
 /* footer */
 footer {
   margin: 5px;
@@ -204,7 +274,9 @@ footer {
     border-radius: 8px;
     margin-left: 4rem;
     margin-right: 4rem;
-    max-width: 900px;
+    margin-top: 1rem;
+    width: 95%;
+    max-width: 95%;
   }
 
   h1 {
@@ -248,4 +320,46 @@ footer {
     "upgrades reviews";
     grid-template-columns: 1fr 1fr;
   }
+  
+  /* inventory category display large screen */
+  #inv-display {
+    display: flex;
+    flex-direction: row;
+    margin: 0;
+    padding: 2rem;
+    justify-content: space-evenly;
+  }
+
+  #inv-display li {
+    display: flex;
+    flex-direction: column;
+  }
+
+  #inv-display li a img {
+    border-radius: 10px 10px 0 0;
+    min-width: 0;
+    max-width: 100%;
+    width: 100%;
+    object-fit: contain;
+  }
+
+  #inv-display div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0;
+    max-height: 150px;
+    height: 150px;
+  }
+
+  #inv-display div hr {
+    display: block;
+    width: 95%;
+  }
+
+  /* single inventory detail view */
+  .detailView {
+    flex-direction: row;
+  }
+
 }
