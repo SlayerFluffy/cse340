@@ -259,7 +259,7 @@ main {
 
 /* login form styling */
 
-#loginFormContainer {
+#loginFormContainer, #registerView {
   border: 1px solid black;
   background-color: rgb(202, 202, 202);
   padding: 1rem;
@@ -269,7 +269,7 @@ main {
   max-width: 1000px;
 }
 
-#loginForm {
+#loginForm, #registerForm {
   display: flex;
   flex-direction: column;
   gap: 5px;
@@ -278,7 +278,7 @@ main {
   max-width: 100%;
 }
 
-#loginForm button {
+#loginForm button, #registerForm button {
   margin: 10px 0;
   background-color: var(--accent);
   width: 100px;

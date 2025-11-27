@@ -16,11 +16,12 @@ const utilities = require("./utilities/")
 const session = require("express-session")
 const pool = require('./database/')
 const accountRoute = require("./routes/accountRoute")
+const bodyParser = require("body-parser")
 
 /* ***********************
  * Middleware
  * ************************/
- app.use(session({
+app.use(session({
   store: new (require('connect-pg-simple')(session))({
     createTableIfMissing: true,
     pool,
@@ -29,7 +30,10 @@ const accountRoute = require("./routes/accountRoute")
   resave: true,
   saveUninitialized: true,
   name: 'sessionId',
- }))
+}))
+
+app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({ extended: true })) // for parsing application/x-www-form-urlencoded
 
  // Express Messages Middleware
 app.use(require('connect-flash')())
