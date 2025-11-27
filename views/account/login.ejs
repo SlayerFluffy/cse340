@@ -1,0 +1,24 @@
+<!-- passes value to h1 and title of page -->
+<% if (title) { %>
+    <h1>
+        <%= title %>
+    </h1>
+    <% } else { res.redirect('/') } %>
+
+<!-- ability to add a message -->
+<%- messages() %>
+
+<!-- login form -->
+ <div id="loginFormContainer">
+    <form id="loginForm" action="?" method="post">
+        <label for="uName"><b>Email: </b></label>
+        <input type="email" placeholder="Enter Email" name="uName" required>
+
+        <label for="password"><b>Password: </b></label>
+        <input type="password" placeholder="Enter Password" name="password" required>
+
+        <button type="submit">Login</button>
+    </form>
+
+    <span id="createAccount">No account? <a href="/account/registration">Sign-up</a></span>
+</div>

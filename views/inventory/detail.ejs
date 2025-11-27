@@ -3,10 +3,11 @@
     <h1>
         <%= title %>
     </h1>
-    <% } else { res.redirect('/') } %>
+    <% } else { 
+        res.redirect('/') } %>
 
-        <!-- ability to add a message -->
-        <%# messages() %>
+<!-- ability to add a message -->
+<%- messages() %>
 
-            <!-- display inventory items -->
-            <%- grid %>
+<!-- display inventory items -->
+<%- grid %>
