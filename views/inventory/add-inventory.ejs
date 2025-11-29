@@ -1,0 +1,74 @@
+<!-- passes value to h1 and title of page -->
+<% if (title) { %>
+    <h1>
+        <%= title %>
+    </h1>
+    <% } else { res.redirect('/') } %>
+
+        <!-- ability to add a message -->
+        <%- messages() %>
+
+        <!-- Display errors if any -->
+        <% if (errors) { %>
+            <ul class="notice">
+                <% errors.array().forEach(error => { %>
+                    <li><%= error.msg %></li>
+                <% }) %>
+            </ul>
+        <% } %>
+
+<div id="addInventoryFormContainer">
+    <form id="addInventoryForm" action="/inv/add-vehicle" method="post">
+        <label for="classification_id">Classification</label>
+        <%- classificationSelect %>
+
+        <label for="inv_make">Make</label>
+        <input type="text" name="inv_make" id="inv_make"
+            value="<%= locals.inv_make || '' %>" required pattern="^[A-Za-z\s]+$" 
+            placeholder="Alphabetic characters only" title="Please enter only alphabetic characters">
+
+        <label for="inv_model">Model</label>
+        <input type="text" name="inv_model" id="inv_model"
+            value="<%= locals.inv_model || '' %>" required pattern="^[A-Za-z0-9\s\-]+$" 
+            placeholder="Alphanumeric characters, spaces, and hyphens only" 
+            title="Please enter alphanumeric characters, spaces, and hyphens only">
+
+        <label for="inv_year">Year</label>
+        <input type="number" name="inv_year" id="inv_year"
+            value="<%= locals.inv_year || '' %>" required min="1900" max="2030" 
+            placeholder="YYYY" title="Please enter a 4-digit year">
+        
+        <label for="inv_description">Description</label>
+        <textarea id="inv_description" name="inv_description" rows="4" cols="50"
+            required placeholder="Description of vehicle..."><%= locals.inv_description || '' %></textarea>
+
+        <label for="inv_image">Image Path</label>
+        <input type="text" name="inv_image" id="inv_image"
+            value="<%= locals.inv_image || '/images/vehicles/no-image.png' %>" 
+            placeholder="/images/vehicles/no-image.png" required
+            title="Please provide the path to the vehicle image">
+
+        <label for="inv_thumbnail">Thumbnail Path</label>
+        <input type="text" name="inv_thumbnail" id="inv_thumbnail"
+            value="<%= locals.inv_thumbnail || '/images/vehicles/no-image-tn.png' %>" 
+            placeholder="/images/vehicles/no-image-tn.png" required
+            title="Please provide the path to the vehicle thumbnail">
+        
+        <label for="inv_price">Price</label>
+        <input type="number" name="inv_price" id="inv_price"
+            value="<%= locals.inv_price || '' %>" placeholder="Decimal or integer" 
+            step="0.01" min="0" required title="Please enter a valid price">
+
+        <label for="inv_miles">Miles</label>
+        <input type="number" name="inv_miles" id="inv_miles"
+            value="<%= locals.inv_miles || '' %>" placeholder="Digits only, no comma"
+            min="0" required title="Please enter valid mileage">
+
+        <label for="inv_color">Color</label>
+        <input type="text" name="inv_color" id="inv_color"
+            value="<%= locals.inv_color || '' %>" placeholder="Color of vehicle"
+            pattern="^[A-Za-z\s]+$" required title="Please enter alphabetic characters and spaces only">
+
+        <input type="submit" value="Add to inventory">
+    </form>
+</div>

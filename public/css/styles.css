@@ -285,12 +285,79 @@ main {
   max-width: 100%;
 }
 
+/* management and database submission styling */
+
+#newClassificationFormContainer {
+  margin: 15px 20%;
+  padding: 5px;
+  background-color: var(--accent);
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+}
+
+#newClassificationForm {
+    display: flex;
+    flex-direction: column;
+    padding:  30px 60px;
+    width: 100%;
+    max-width: 450px;
+    min-width: 300px;
+    gap: 20px;
+}
+
+#addInventoryFormContainer {
+    margin: 15px 20%;
+    padding: 5px;
+    background-color: var(--accent);
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+}
+
+#addInventoryForm {
+  display: flex;
+    flex-direction: column;
+    padding: 30px 60px;
+    width: 100%;
+    max-width: 450px;
+    min-width: 300px;
+    gap: 10px;
+}
+
+/* form validation styling */
+
+
+#addInventoryForm input:focus:valid {
+  background: lightgreen;
+}
+
+#addInventoryForm input:focus:invalid {
+  background: rgb(255, 88, 88);
+}
+
+#addInventoryForm input:invalid {
+  border: 2px solid rgb(255, 88, 88);
+}
+
+#newclassificationForm input:focus:valid {
+  background: lightgreen;
+}
+
+#newClassificationForm input:focus:invalid {
+  background: rgb(255, 88, 88);
+}
+
+#newClassificationForm input:invalid {
+  border: 2px solid rgb(255, 88, 88);
+}
+
 /* footer */
 footer {
   margin: 5px;
 }
 
-/* Large Screens */
+/* ***********************Large Screens ******************************************** */
 @media screen and (min-width: 651px) { 
   html {
     display: flex;

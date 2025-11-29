@@ -1,0 +1,18 @@
+<!-- passes value to h1 and title of page -->
+<% if (title) { %>
+    <h1>
+        <%= title %>
+    </h1>
+    <% } else { res.redirect('/') } %>
+
+        <!-- ability to add a message -->
+        <%- messages() %> 
+
+        <div class="management-links">
+            <p>
+                <a href="/inv/add-classification">Add New Classification</a>
+            </p>
+            <p>
+                <a href="/inv/add-vehicle">Add New Vehicle</a>
+            </p>
+        </div>

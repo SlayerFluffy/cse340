@@ -1,0 +1,23 @@
+<!-- passes value to h1 and title of page -->
+<% if (title) { %>
+    <h1>
+        <%= title %>
+    </h1>
+    <% } else { res.redirect('/') } %>
+
+        <!-- ability to add a message -->
+        <%- messages() %>
+
+<div id="newClassificationFormContainer">
+    <form id="newClassificationForm" action="/inv/add-classification" method="post">
+        <label for="classification_name">Add new classification: </label>
+        <input type="text" 
+               name="classification_name" 
+               id="classification_name"
+               value="<%= locals.classification_name || '' %>"
+               required 
+               pattern="[a-zA-Z]+"
+               placeholder="Alphabetic characters only">
+        <input type="submit" value="Add Classification">
+    </form>
+</div>
