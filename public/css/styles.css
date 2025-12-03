@@ -315,7 +315,26 @@ main {
     justify-content: center;
 }
 
+#editInventoryFormContainer {
+    margin: 15px 20%;
+    padding: 5px;
+    background-color: var(--accent);
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+}
+
 #addInventoryForm {
+  display: flex;
+    flex-direction: column;
+    padding: 30px 60px;
+    width: 100%;
+    max-width: 450px;
+    min-width: 300px;
+    gap: 10px;
+}
+
+.editInventoryForm {
   display: flex;
     flex-direction: column;
     padding: 30px 60px;
@@ -337,6 +356,18 @@ main {
 }
 
 #addInventoryForm input:invalid {
+  border: 2px solid rgb(255, 88, 88);
+}
+
+.editInventoryForm input:focus:valid {
+  background: lightgreen;
+}
+
+.editInventoryForm input:focus:invalid {
+  background: rgb(255, 88, 88);
+}
+
+.editInventoryForm input:invalid {
   border: 2px solid rgb(255, 88, 88);
 }
 
@@ -457,4 +488,108 @@ footer {
     flex-direction: row;
   }
 
+}
+
+/* Inventory Management Table Styles */
+#inventoryDisplay {
+  margin: 15px auto;
+  max-width: 1200px;
+  background-color: var(--white);
+  border: 1px solid var(--black);
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+#inventoryDisplay table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: sans-serif;
+}
+
+#inventoryDisplay th {
+  background-color: var(--navBackground);
+  color: var(--white);
+  padding: 12px 8px;
+  text-align: left;
+  font-weight: bold;
+  border-bottom: 2px solid var(--accent);
+}
+
+#inventoryDisplay td {
+  padding: 10px 8px;
+  border-bottom: 1px solid #ddd;
+  vertical-align: middle;
+}
+
+#inventoryDisplay tr:nth-child(even) {
+  background-color: rgb(247, 247, 247);
+}
+
+#inventoryDisplay tr:hover {
+  background-color: rgb(237, 239, 243);
+}
+
+#inventoryDisplay .vehicle-image {
+  width: 60px;
+  height: 45px;
+  object-fit: cover;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+#inventoryDisplay .price {
+  font-weight: bold;
+  color: var(--accent);
+}
+
+#inventoryDisplay .actions {
+  white-space: nowrap;
+}
+
+#inventoryDisplay .actions a {
+  display: inline-block;
+  padding: 5px 10px;
+  margin: 0 2px;
+  background-color: var(--accent);
+  color: var(--white);
+  text-decoration: none;
+  border-radius: 5px;
+  font-size: 0.9rem;
+  transition: background-color 0.3s;
+}
+
+#inventoryDisplay .actions a:hover {
+  background-color: #0999b3;
+}
+
+#inventoryDisplay .actions .delete-link {
+  background-color: #dc3545;
+}
+
+#inventoryDisplay .actions .delete-link:hover {
+  background-color: #c82333;
+}
+
+/* Responsive table design */
+@media screen and (max-width: 768px) {
+  #inventoryDisplay {
+    margin: 15px 5px;
+  }
+  
+  #inventoryDisplay th,
+  #inventoryDisplay td {
+    padding: 8px 4px;
+    font-size: 0.9rem;
+  }
+  
+  #inventoryDisplay .vehicle-image {
+    width: 50px;
+    height: 38px;
+  }
+  
+  #inventoryDisplay .actions a {
+    padding: 4px 8px;
+    font-size: 0.8rem;
+  }
 }
