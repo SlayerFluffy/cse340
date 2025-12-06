@@ -10,4 +10,13 @@
 
 <!-- content for account manager -->
 
-<p>You're logged in.</p>
+<h2>Welcome <%= locals.accountData.account_firstname %> </h2>
+<p>You are logged in.</p>
+<h3>Update Account</h3>
+<p><a href="/account/update">Update account information</a></p>
+
+<% const accountType = locals.accountData.account_type %>
+<% if (accountType === 'Employee' || accountType === 'Admin') { %>
+    <h3>Inventory Management</h3>
+    <p><a href="/inv/">Manage Inventory</a></p>
+<% } %>

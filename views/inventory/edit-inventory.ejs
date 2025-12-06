@@ -69,7 +69,8 @@
             value="<%= locals.inv_color || '' %>" placeholder="Color of vehicle"
             pattern="^[A-Za-z\s]+$" required title="Please enter alphabetic characters and spaces only">
 
-        <input type="submit" name="submit" value="Update Vehicle">
+        <input type="submit" name="submit" value="Update Vehicle" disabled>
+        <script src="/js/inv-update.js"></script>
         <input type="hidden" name="inv_id" <% if(locals.inv_id) { %> value="<%= locals.inv_id %>"
             <% } %>>
     </form>

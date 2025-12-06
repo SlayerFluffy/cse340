@@ -58,10 +58,10 @@ app.set("layout", "./layouts/layout") // not at views root
  *************************/
 app.use(static)
 app.get("/", utilities.handleErrors(baseController.buildHome))
-// Inventory routes
 app.use("/inv", inventoryRoute)
 app.get("/error", utilities.handleErrors(baseController.buildError))
 app.use("/account", accountRoute)
+
 // File Not Found Route - must be last route in list
 app.use(utilities.handleErrors(async (req, res, next) => {
   next({status: 404, message: 'Sorry, we appear to have lost that page.'})
